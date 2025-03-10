@@ -1,0 +1,332 @@
+/* 
+background color - #090a0f
+
+btn bg - #4f46e533
+btn color - text 900
+
+rgb(165, 180, 252)
+
+
+*/
+
+@font-face {
+	src: url("./assets/fonts/CursedTimer.ttf");
+	font-family: cursedtimer;
+}
+
+:root {
+	--background-color: #090a0f;
+	--indigo-300: rgb(165, 180, 252);
+	--indigo-400: rgb(129, 140, 248);
+	--indigo-500: rgb(99, 102, 241);
+	--gray-300: rgb(209, 213, 219);
+	--gray-400: rgb(156, 163, 175);
+	--gray-500: rgb(107, 114, 128);
+}
+
+body {
+	box-sizing: border-box;
+	color: var(--indigo-400);
+	background: var(--background-color);
+	font-family: "Inter", sans-serif;
+	margin: 0;
+	text-align: center;
+	/* height: 100vh; */
+	/* border: 2px dotted red; */
+	max-width: 440px;
+	margin-inline: auto;
+}
+
+/* UTILITY CLASS */
+
+.card-light {
+	background: linear-gradient(to bottom right, rgba(12, 16, 27, 0.9), rgba(20, 26, 39, 0.6));
+	border-radius: 12px;
+}
+
+.card-dark {
+	background: linear-gradient(to top right, rgba(30, 27, 75, 0.1), rgba(30, 27, 75, 0.2));
+	border-radius: 12px;
+}
+
+.color-gray-400 {
+	color: var(--gray-400);
+}
+
+.header {
+	color: var(--gray-300);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-inline: 1.5em;
+	border-radius: 12px;
+}
+
+.header .basketball-logo {
+	font-size: 4em;
+}
+
+.header .header-title {
+	text-align: right;
+	/* font-size: 8vw; */
+}
+
+.header .scoreboard {
+	display: block;
+	color: var(--indigo-400);
+}
+
+.timer-container {
+	font-family: cursedtimer;
+	padding: 2em 0;
+}
+
+.timer-input-container {
+	display: flex;
+	justify-content: center;
+	font-size: 4.5rem;
+}
+
+.timer-input {
+	font-family: cursedtimer;
+	font-size: 4.5rem;
+	margin: 0;
+	padding: 0;
+	color: var(--indigo-400);
+	background: transparent;
+	border: none;
+	width: auto;
+	min-width: 2ch;
+	-webkit-appearance: none;
+	appearance: none;
+	flex: 0 0 0;
+}
+
+.timer-input::-webkit-outer-spin-button,
+.timer-input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.timer-input:focus {
+	outline: none;
+}
+
+.timer-btn-container {
+	margin-top: 1.25em;
+	display: flex;
+	justify-content: center;
+	gap: 12px;
+}
+
+.timer-input-container > p {
+	margin: 0;
+}
+
+.timer-btn {
+	width: 40px;
+	aspect-ratio: 1/1;
+	font-size: 1rem;
+	border: none;
+	border-radius: 50%;
+	background: rgba(79, 70, 229, 0.2);
+	color: var(--indigo-500);
+}
+
+.container {
+	margin: 16px;
+	/* border: 3px solid red; */
+}
+
+.home-and-guest-container {
+	display: flex;
+	gap: 16px;
+}
+
+.home-container,
+.guest-container {
+	flex: 1 1 auto;
+}
+
+.team-logo-title-score-container {
+	padding: 1.25em;
+}
+
+.team-logo {
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+}
+
+.team-title {
+	font-size: 1.125rem;
+	font-weight: 700;
+	color: var(--indigo-300);
+	margin-block: 0.44em 0.22em;
+}
+
+.team-score {
+	color: var(--indigo-300);
+	font-size: 3.75rem;
+	margin: 0;
+}
+
+.score-container,
+.foul-container,
+.timeout-container {
+	padding: 16px;
+	margin-top: 16px;
+}
+
+.score-title,
+.foul-title,
+.timeout-title {
+	color: var(--gray-400);
+	text-align: left;
+	font-size: 0.75rem;
+	font-weight: 400;
+	margin: 0 0 8px;
+}
+
+.increment-score-btn-container {
+	display: flex;
+	gap: 8px;
+}
+
+.increment-score-btn {
+	flex: 1 1 0;
+	background: rgba(79, 70, 229, 0.2);
+	border: none;
+	color: var(--indigo-400);
+	font-size: 0.875rem;
+	border-radius: 8px;
+	padding-block: 0.6em;
+}
+
+.quarter-won {
+	background: #4ade80;
+	border-color: #4ade80;
+	box-shadow: 0px 0px 5px #4ade80;
+}
+
+.quarter-lost {
+	background: #fb7185;
+	border-color: #fb7185;
+	box-shadow: 0px 0px 5px #fb7185;
+}
+
+.quarter-tie {
+	background: #e9f67b;
+	border-color: #e9f67b;
+	box-shadow: 0px 0px 5px #e9f67b;
+}
+
+.foul-score,
+.timeout-score {
+	font-size: 1.75rem;
+	font-weight: 400;
+	margin: 0;
+}
+
+.foul-score-and-btn-container,
+.timeout-score-and-btn-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.modify-foul-score-btn,
+.modify-timeout-score-btn {
+	color: var(--indigo-400);
+	font-size: 1.25rem;
+	font-weight: 400;
+	width: 32px;
+	height: 32px;
+	background: rgba(79, 70, 229, 0.2);
+	border: none;
+	border-radius: 50%;
+	margin-left: 4px;
+}
+
+/* .hide-btn {
+	display: none;
+} */
+
+.pause-timer-btn,
+.resume-timer-btn {
+	display: none;
+}
+
+.modify-scoreboard-btn-container {
+	display: flex;
+	gap: 12px;
+}
+
+.reset-scoreboard-btn,
+.save-scoreboard-btn {
+	flex: 1 1 0;
+	background: rgba(79, 70, 229, 0.2);
+	border: none;
+	color: var(--indigo-400);
+	font-size: 0.875rem;
+	border-radius: 8px;
+	padding-block: 0.7em;
+}
+
+.reset-scoreboard-btn {
+	color: rgb(248, 113, 113);
+	background: rgba(220, 38, 38, 0.2);
+}
+
+/* quarter section */
+
+.quarter-section-title {
+	color: var(--gray-400);
+	font-size: 0.875rem;
+	font-weight: 400;
+	margin: 32px 0 16px;
+}
+
+.quarter-container {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 16px;
+	margin-bottom: 16px;
+}
+
+.quarter-team-title {
+	color: var(--gray-500);
+	font-size: 0.75rem;
+	margin: 0 0 4px;
+}
+
+.quarter-team-score {
+	font-size: 1.5rem;
+	margin: 0;
+}
+
+.quarter-number {
+	font-size: 0.75rem;
+	color: var(--gray-500);
+}
+
+/* court view */
+
+.court-view-container {
+	box-sizing: border-box;
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6)), url("./assets/images/court-view.png");
+	background-size: cover;
+	height: 190px;
+	padding: 16px;
+	border-radius: 12px;
+}
+
+.court-view-title {
+	color: var(--indigo-300);
+	text-shadow: 0px 0px 1px #000;
+	text-align: left;
+	font-size: 1.125rem;
+	font-weight: 700;
+	margin: 8px 0 0;
+}

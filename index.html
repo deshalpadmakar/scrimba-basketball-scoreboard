@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Scoreboard</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- inter google font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@400;700&display=swap" rel="stylesheet" />
+		<!-- font-awesome cdn -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+			integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="./index.css" />
+	</head>
+	<body>
+		<div class="header">
+			<i class="fa-solid fa-basketball basketball-logo"></i>
+			<h1 class="header-title">Basketball <span class="scoreboard">Scoreboard</span></h1>
+		</div>
+		<div class="container card-light timer-container">
+			<!-- <p class="timer-display" id="timer-display">12:00</p> -->
+			<div class="timer-input-container">
+				<input class="timer-input" type="number" id="minuts-input-num" value="12" min="0" />
+				<p>:</p>
+				<input class="timer-input" type="number" id="seconds-input-num" value="00" min="0" />
+			</div>
+			<div class="timer-btn-container">
+				<button class="start-timer-btn timer-btn" id="start-timer-btn" onclick="setAndStartTimer()">
+					<i class="fa-solid fa-play"></i>
+				</button>
+				<button class="pause-timer-btn timer-btn" id="pause-timer-btn" onclick="pauseTimer()">
+					<i class="fa-solid fa-pause"></i>
+				</button>
+				<button class="resume-timer-btn timer-btn" id="resume-timer-btn" onclick="resumeTimer()">
+					<i class="fa-solid fa-play"></i>
+				</button>
+				<button class="reset-timer-btn timer-btn" onclick="resetTimer()">
+					<i class="fa-solid fa-arrow-rotate-left"></i>
+				</button>
+			</div>
+		</div>
+		<div class="container home-and-guest-container">
+			<div class="home-container">
+				<div class="team-logo-title-score-container card-light">
+					<img class="team-logo" src="./assets/images/home-team.png" alt="home team logo" />
+					<h2 class="team-title">HOME</h2>
+					<h3 class="team-score" id="home-total-score">0</h3>
+				</div>
+				<div class="score-container card-dark">
+					<p class="score-title">SCORE</p>
+					<div class="increment-score-btn-container">
+						<button class="increment-score-btn" onclick="incrementHomeScoreByOne()">+1</button>
+						<button class="increment-score-btn" onclick="incrementHomeScoreByTwo()">+2</button>
+						<button class="increment-score-btn" onclick="incrementHomeScoreByThree()">+3</button>
+					</div>
+				</div>
+				<div class="foul-container card-dark">
+					<h4 class="foul-title">FOULS</h4>
+					<div class="foul-score-and-btn-container">
+						<h5 class="foul-score" id="home-foul">0</h5>
+						<div>
+							<button class="modify-foul-score-btn" onclick="decrementHomeFoul()">--</button>
+							<button class="modify-foul-score-btn" onclick="incrementHomeFoul()">+</button>
+						</div>
+					</div>
+				</div>
+				<div class="timeout-container card-dark">
+					<h4 class="timeout-title">TIMEOUTS</h4>
+					<div class="timeout-score-and-btn-container">
+						<h5 class="timeout-score" id="home-timeout">0</h5>
+						<div>
+							<button class="modify-timeout-score-btn" onclick="decrementHomeTimeout()">--</button>
+							<button class="modify-timeout-score-btn" onclick="incrementHomeTimeout()">+</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="guest-container">
+				<div class="team-logo-title-score-container card-light">
+					<img class="team-logo" src="./assets/images/guest-team.png" alt="guest team logo" />
+					<h2 class="team-title">GUEST</h2>
+					<h3 class="team-score" id="guest-total-score">0</h3>
+				</div>
+				<div class="score-container card-dark">
+					<p class="score-title">SCORE</p>
+					<div class="increment-score-btn-container">
+						<button class="increment-score-btn" onclick="incrementGuestScoreByOne()">+1</button>
+						<button class="increment-score-btn" onclick="incrementGuestScoreByTwo()">+2</button>
+						<button class="increment-score-btn" onclick="incrementGuestScoreByThree()">+3</button>
+					</div>
+				</div>
+				<div class="foul-container card-dark">
+					<h4 class="foul-title">FOULS</h4>
+					<div class="foul-score-and-btn-container">
+						<h5 class="foul-score" id="guest-foul">0</h5>
+						<div>
+							<button class="modify-foul-score-btn" onclick="decrementGuestFoul()">--</button>
+							<button class="modify-foul-score-btn" onclick="incrementGuestFoul()">+</button>
+						</div>
+					</div>
+				</div>
+				<div class="timeout-container card-dark">
+					<h4 class="timeout-title">TIMEOUTS</h4>
+					<div class="timeout-score-and-btn-container">
+						<h5 class="timeout-score" id="guest-timeout">0</h5>
+						<div>
+							<button class="modify-timeout-score-btn" onclick="decrementGuestTimeout()">--</button>
+							<button class="modify-timeout-score-btn" onclick="incrementGuestTimeout()">+</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<section class="quarter-section container">
+			<p class="quarter-section-title">QUARTER SCORE</p>
+			<div class="quarter-container card-dark">
+				<div>
+					<p class="quarter-team-title">HOME</p>
+					<p class="quarter-team-score" id="home-quarter-one-score">0</p>
+				</div>
+				<p class="quarter-number">SET 1</p>
+				<div>
+					<p class="quarter-team-title">GUEST</p>
+					<p class="quarter-team-score" id="guest-quarter-one-score">0</p>
+				</div>
+			</div>
+			<div class="quarter-container card-dark">
+				<div>
+					<p class="quarter-team-title">HOME</p>
+					<p class="quarter-team-score" id="home-quarter-two-score">0</p>
+				</div>
+				<p class="quarter-number">SET 2</p>
+				<div>
+					<p class="quarter-team-title">GUEST</p>
+					<p class="quarter-team-score" id="guest-quarter-two-score">0</p>
+				</div>
+			</div>
+			<div class="quarter-container card-dark">
+				<div>
+					<p class="quarter-team-title">HOME</p>
+					<p class="quarter-team-score" id="home-quarter-three-score">0</p>
+				</div>
+				<p class="quarter-number">SET 3</p>
+				<div>
+					<p class="quarter-team-title">GUEST</p>
+					<p class="quarter-team-score" id="guest-quarter-three-score">0</p>
+				</div>
+			</div>
+			<div class="quarter-container card-dark">
+				<div>
+					<p class="quarter-team-title">HOME</p>
+					<p class="quarter-team-score" id="home-quarter-four-score">0</p>
+				</div>
+				<p class="quarter-number">SET 4</p>
+				<div>
+					<p class="quarter-team-title">GUEST</p>
+					<p class="quarter-team-score" id="guest-quarter-four-score">0</p>
+				</div>
+			</div>
+			<div class="quarter-container card-dark">
+				<div>
+					<p class="quarter-team-title">HOME</p>
+					<p class="quarter-team-score" id="home-quarter-five-score">0</p>
+				</div>
+				<p class="quarter-number">SET 5</p>
+				<div>
+					<p class="quarter-team-title">GUEST</p>
+					<p class="quarter-team-score" id="guest-quarter-five-score">0</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- <div class="quarter-container">
+            <p>QUARTER SCORE</p>
+            <div>
+                <div class="quarter-indicator" id="guest-quarter-two-indicator"></div>
+                <p class="quarter-score" id="guest-quarter-two-score">0</p>
+            </div>
+            <div>
+                <div class="quarter-indicator" id="guest-quarter-three-indicator"></div>
+                <p class="quarter-score" id="guest-quarter-three-score">0</p>
+            </div>
+            <div>
+                <div class="quarter-indicator" id="guest-quarter-four-indicator"></div>
+                <p class="quarter-score" id="guest-quarter-four-score">0</p>
+            </div>
+            <div>
+                <div class="quarter-indicator" id="guest-quarter-five-indicator"></div>
+                <p class="quarter-score" id="guest-quarter-five-score">0</p>
+            </div>
+        </div> -->
+
+		<div class="court-view-container container">
+			<p class="court-view-title">Court View</p>
+		</div>
+
+		<div class="controls-container container">
+			<div class="modify-scoreboard-btn-container">
+				<button class="reset-scoreboard-btn" onclick="resetScoreboard()">
+					<i class="fa-solid fa-arrow-rotate-left"></i> Reset Scoreboard
+				</button>
+				<button class="save-scoreboard-btn" onclick="saveCurrentQuarterScore()">
+					<i class="fa-solid fa-floppy-disk"></i> Save Set
+				</button>
+			</div>
+		</div>
+
+		<script src="./index.js"></script>
+	</body>
+</html>
