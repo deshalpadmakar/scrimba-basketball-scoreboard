@@ -7,6 +7,8 @@ btn color - text 900
 rgb(165, 180, 252)
 
 
+
+
 */
 
 @font-face {
@@ -15,7 +17,7 @@ rgb(165, 180, 252)
 }
 
 :root {
-	--background-color: #090a0f;
+	--background-color: rgb(12, 14, 21);
 	--indigo-300: rgb(165, 180, 252);
 	--indigo-400: rgb(129, 140, 248);
 	--indigo-500: rgb(99, 102, 241);
@@ -40,13 +42,13 @@ body {
 /* UTILITY CLASS */
 
 .card-light {
-	background: linear-gradient(to bottom right, rgba(12, 16, 27, 0.9), rgba(20, 26, 39, 0.6));
+	background: linear-gradient(to top right, rgba(49, 46, 129, 0.4), rgba(49, 46, 129, 0.1));
 	border-radius: 12px;
 }
 
 .card-dark {
-	background: linear-gradient(to top right, rgba(30, 27, 75, 0.1), rgba(30, 27, 75, 0.2));
 	border-radius: 12px;
+	background: linear-gradient(to top right, rgba(30, 27, 75, 0.6), rgba(30, 27, 75, 0.2));
 }
 
 .color-gray-400 {
@@ -203,24 +205,6 @@ body {
 	padding-block: 0.6em;
 }
 
-.quarter-won {
-	background: #4ade80;
-	border-color: #4ade80;
-	box-shadow: 0px 0px 5px #4ade80;
-}
-
-.quarter-lost {
-	background: #fb7185;
-	border-color: #fb7185;
-	box-shadow: 0px 0px 5px #fb7185;
-}
-
-.quarter-tie {
-	background: #e9f67b;
-	border-color: #e9f67b;
-	box-shadow: 0px 0px 5px #e9f67b;
-}
-
 .foul-score,
 .timeout-score {
 	font-size: 1.75rem;
@@ -248,10 +232,6 @@ body {
 	margin-left: 4px;
 }
 
-/* .hide-btn {
-	display: none;
-} */
-
 .pause-timer-btn,
 .resume-timer-btn {
 	display: none;
@@ -265,9 +245,7 @@ body {
 .reset-scoreboard-btn,
 .save-scoreboard-btn {
 	flex: 1 1 0;
-	background: rgba(79, 70, 229, 0.2);
 	border: none;
-	color: var(--indigo-400);
 	font-size: 0.875rem;
 	border-radius: 8px;
 	padding-block: 0.7em;
@@ -276,6 +254,11 @@ body {
 .reset-scoreboard-btn {
 	color: rgb(248, 113, 113);
 	background: rgba(220, 38, 38, 0.2);
+}
+
+.save-scoreboard-btn {
+	color: var(--indigo-400);
+	background: rgba(79, 70, 229, 0.2);
 }
 
 /* quarter section */
