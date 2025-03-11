@@ -64,6 +64,7 @@ function incrementHomeScoreByOne() {
 	homeCurrentQuarterScore += 1
 	updateHomeTotalScore()
 	updateHomeCurrentQuarterScore()
+	navigator.vibrate(5)
 }
 
 function incrementHomeScoreByTwo() {
@@ -71,6 +72,7 @@ function incrementHomeScoreByTwo() {
 	homeCurrentQuarterScore += 2
 	updateHomeTotalScore()
 	updateHomeCurrentQuarterScore()
+	navigator.vibrate(5)
 }
 
 function incrementHomeScoreByThree() {
@@ -78,6 +80,7 @@ function incrementHomeScoreByThree() {
 	homeCurrentQuarterScore += 3
 	updateHomeTotalScore()
 	updateHomeCurrentQuarterScore()
+	navigator.vibrate(5)
 }
 
 function updateHomeTotalScore() {
@@ -111,6 +114,7 @@ function updateHomeCurrentQuarterScore() {
 
 // functions managing guest score
 function incrementGuestScoreByOne() {
+	navigator.vibrate(5)
 	guestTotalScore += 1
 	guestCurrentQuarterScore += 1
 	updateGuestTotalScore()
@@ -118,6 +122,7 @@ function incrementGuestScoreByOne() {
 }
 
 function incrementGuestScoreByTwo() {
+	navigator.vibrate(5)
 	guestTotalScore += 2
 	guestCurrentQuarterScore += 2
 	updateGuestTotalScore()
@@ -125,6 +130,7 @@ function incrementGuestScoreByTwo() {
 }
 
 function incrementGuestScoreByThree() {
+	navigator.vibrate(5)
 	guestTotalScore += 3
 	guestCurrentQuarterScore += 3
 	updateGuestTotalScore()
@@ -163,11 +169,13 @@ function updateGuestCurrentQuarterScore() {
 // functions managing home foul
 
 function incrementHomeFoul() {
+	navigator.vibrate(5)
 	homeFoul++
 	updateHomeFoul()
 }
 
 function decrementHomeFoul() {
+	navigator.vibrate(5)
 	if (homeFoul > 0) {
 		homeFoul--
 		updateHomeFoul()
@@ -181,11 +189,13 @@ function updateHomeFoul() {
 // functions managing guest foul
 
 function incrementGuestFoul() {
+	navigator.vibrate(5)
 	guestFoul++
 	updateGuestFoul()
 }
 
 function decrementGuestFoul() {
+	navigator.vibrate(5)
 	if (guestFoul > 0) {
 		guestFoul--
 		updateGuestFoul()
@@ -199,11 +209,13 @@ function updateGuestFoul() {
 // functions managing home timeout
 
 function incrementHomeTimeout() {
+	navigator.vibrate(5)
 	homeTimeout++
 	updateHomeTimeout()
 }
 
 function decrementHomeTimeout() {
+	navigator.vibrate(5)
 	if (homeTimeout > 0) {
 		homeTimeout--
 		updateHomeTimeout()
@@ -217,11 +229,13 @@ function updateHomeTimeout() {
 // functions managing guest timeout
 
 function incrementGuestTimeout() {
+	navigator.vibrate(5)
 	guestTimeout++
 	updateGuestTimeout()
 }
 
 function decrementGuestTimeout() {
+	navigator.vibrate(5)
 	if (guestTimeout > 0) {
 		guestTimeout--
 		updateGuestTimeout()
@@ -235,6 +249,7 @@ function updateGuestTimeout() {
 // functions managing timer
 
 function setAndStartTimer() {
+	navigator.vibrate(5)
 	// initializing timer
 	let initialTimeInMinuts = parseInt(minutsInputEl.value, 0)
 	let initialTimeInSeconds = parseInt(secondsInputEl.value, 0)
@@ -277,6 +292,7 @@ function startTimer() {
 }
 
 function pauseTimer() {
+	navigator.vibrate(5)
 	clearInterval(countdown)
 	pauseTimerBtn.style.display = "none"
 	resumeTimerBtn.style.display = "block"
@@ -286,6 +302,7 @@ function resumeTimer() {
 	startTimer()
 	resumeTimerBtn.style.display = "none"
 	pauseTimerBtn.style.display = "block"
+	navigator.vibrate(5)
 }
 
 function resetTimer() {
@@ -296,9 +313,12 @@ function resetTimer() {
 	startTimerBtn.style.display = "block"
 	pauseTimerBtn.style.display = "none"
 	resumeTimerBtn.style.display = "none"
+	navigator.vibrate(5)
 }
 
 function saveCurrentQuarterScore() {
+	// vibrate phone on btn click
+	navigator.vibrate(5)
 	if (currentQuarter < 6) {
 		// moving on to next quarter
 		currentQuarter++
@@ -309,6 +329,9 @@ function saveCurrentQuarterScore() {
 }
 
 function resetScoreboard() {
+	// vibrate phone on btn click
+	navigator.vibrate(5)
+
 	// reset timer
 	resetTimer()
 

@@ -6,7 +6,7 @@ btn color - text 900
 
 rgb(165, 180, 252)
 
-
+49, 46, 129 - indigo 800
 
 
 */
@@ -42,13 +42,20 @@ body {
 /* UTILITY CLASS */
 
 .card-light {
-	background: linear-gradient(to top right, rgba(49, 46, 129, 0.4), rgba(49, 46, 129, 0.1));
 	border-radius: 12px;
+	background: linear-gradient(
+		to top right,
+		oklch(0.359 0.144 278.697 / 0.4),
+		oklch(0.359 0.144 278.697 / 0.2),
+		oklch(0.359 0.144 278.697 / 0.1)
+	);
+	/* indigo-900 */
 }
 
 .card-dark {
 	border-radius: 12px;
-	background: linear-gradient(to top right, rgba(30, 27, 75, 0.6), rgba(30, 27, 75, 0.2));
+	background: linear-gradient(to top right, oklch(0.257 0.09 281.288 / 0.7), oklch(0.257 0.09 281.288 / 0.1));
+	/* indigo-950 */
 }
 
 .color-gray-400 {
@@ -135,6 +142,10 @@ body {
 	color: var(--indigo-500);
 }
 
+.timer-btn:active {
+	background: rgba(79, 70, 229, 0.8);
+}
+
 .container {
 	margin: 16px;
 	/* border: 3px solid red; */
@@ -205,6 +216,10 @@ body {
 	padding-block: 0.6em;
 }
 
+.increment-score-btn:active {
+	background-color: rgba(79, 70, 229, 0.8);
+}
+
 .foul-score,
 .timeout-score {
 	font-size: 1.75rem;
@@ -232,6 +247,11 @@ body {
 	margin-left: 4px;
 }
 
+.modify-foul-score-btn:active,
+.modify-timeout-score-btn:active {
+	background: rgba(79, 70, 229, 0.8);
+}
+
 .pause-timer-btn,
 .resume-timer-btn {
 	display: none;
@@ -256,9 +276,17 @@ body {
 	background: rgba(220, 38, 38, 0.2);
 }
 
+.reset-scoreboard-btn:active {
+	background: rgba(220, 38, 38, 0.5);
+}
+
 .save-scoreboard-btn {
 	color: var(--indigo-400);
 	background: rgba(79, 70, 229, 0.2);
+}
+
+.save-scoreboard-btn:active {
+	background: rgba(79, 70, 229, 0.8);
 }
 
 /* quarter section */
